@@ -59,10 +59,21 @@ export function getSession() {
 }
 
 async function httpGet(path, headers = {}) {
-  const res = await fetch(`${BASE_URL}${path}`, { headers });
+  const url = `${BASE_URL}${path}`;
+
+  const res = await fetch(url, {
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      ...headers
+    }
+  });
+
   if (!res.ok) {
-    const txt = await res.text();
-    throw new Error(txt || `Error ${res.status}`);
+    let txt = "";
+    try { txt = await res.text(); } catch {}
+    throw new Error(txt || `Error ${res.status} al llamar: ${url}`);
   }
   return res.json();
 }
