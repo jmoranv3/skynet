@@ -38,10 +38,13 @@ function Usuarios() {
   }, []);
 
   // Búsqueda
-  const filtered = usuarios.filter((u) => {
-    const text = `${u.nombre} ${u.usuario} ${u.correo} ${u.rol}`.toLowerCase();
-    return text.includes(search.toLowerCase());
-  });
+const filtered = Array.isArray(usuarios)
+  ? usuarios.filter((u) => {
+      const text = `${u.nombre} ${u.usuario} ${u.correo} ${u.rol}`.toLowerCase();
+      return text.includes(search.toLowerCase());
+    })
+  : [];
+
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
   const pageData = filtered.slice((page - 1) * pageSize, page * pageSize);
