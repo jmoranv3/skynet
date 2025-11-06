@@ -19,28 +19,30 @@ function Dashboard() {
   const [selectedVisit, setSelectedVisit] = useState(null);
 
   const user = JSON.parse(localStorage.getItem("user") || "{}");
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const [resProg, resComp, resPend, cliList] = await Promise.all([
+        getVisitasProgramadas(),
+        getVisitasCompletadas(),
+        getVisitasPendientes(),
+        getClientes(),
+      ]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [resProg, resComp, resPend, cliList] = await Promise.all([
-          getVisitasProgramadas(),
-          getVisitasCompletadas(),
-          getVisitasPendientes(),
-          getClientes(),
-        ]);
-        setProgramadas(resProg.visitas || []);
-        setCompletadas(resComp.visitas || []);
-        setPendientes(resPend.visitas || []);
-        setClientes(cliList || []);
-      } catch (error) {
-        console.error("Error cargando KPIs:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
+      setProgramadas(resProg.visitas || []);
+      setCompletadas(resComp.visitas || []);
+      setPendientes(resPend.visitas || []);
+
++     setClientes(Array.isArray(cliList.clientes) ? cliList.clientes : []);
+
+    } catch (error) {
+      console.error("Error cargando KPIs:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  fetchData();
+}, []);
 
   // Índice de clientes por nombre
   const clienteByName = useMemo(() => {
