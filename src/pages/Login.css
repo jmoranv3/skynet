@@ -1,0 +1,128 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffe6cc, #ffffff, #ffb347);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Animación suave del fondo */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.95);
+  width: 380px;
+  padding: 35px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.login-box h2 {
+  margin-bottom: 25px;
+  color: #003366; /* Azul oscuro profesional */
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: 0.5px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  font-size: 15px;
+  outline: none;
+  background: #ffffff;
+  color: #000000;
+  transition: all 0.3s ease;
+}
+
+.login-box input::placeholder {
+  color: #555555;
+}
+
+.login-box input:focus {
+  border-color: #ff8c32;
+  box-shadow: 0 0 6px rgba(255, 140, 50, 0.4);
+  background: #ffffff;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #0053a6, #007bff);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+}
+
+.login-box button:hover {
+  background: linear-gradient(135deg, #ff8c32, #ffa94d);
+  transform: scale(1.03);
+}
+
+.error-text {
+  color: red;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.icon {
+  font-size: 2.3rem;
+  margin-top: 8px;
+  animation: pop 0.4s ease;
+}
+
+.icon.success {
+  color: #28a745; /* Verde éxito */
+}
+
+.icon.error {
+  color: #d9534f; /* Rojo error */
+}
+
+/* Animación de aparición */
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}

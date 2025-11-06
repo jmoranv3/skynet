@@ -1,0 +1,66 @@
+/* src/pages/Visitas.css */
+/* Reutiliza estilos globales de páginas (inputs, .data-table, .btn, .badge, etc.) */
+
+.visitas-page {
+  color: #111; /* letras negras como acordamos */
+}
+
+.visitas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.visitas-header h1 {
+  margin: 0;
+  color: #fff;               /* Título blanco como en Usuarios */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
+
+.visitas-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input.search {
+  min-width: 320px;
+}
+
+/* Acciones fila */
+.row-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Badges por estado */
+.badge.state {
+  border-radius: 16px;
+  padding: 4px 10px;
+  font-weight: 600;
+  background: #eef;
+}
+
+.badge.state.pendiente {
+  background: #fff3e6;
+  border: 1px solid #ff9f43;
+  color: black;
+}
+.badge.state.en_progreso {
+  background: #fffbe6;
+  border: 1px solid #fbc02d;
+    color: black;
+}
+.badge.state.completada {
+  background: #e8f5e9;
+  border: 1px solid #2e7d32;
+    color: black;
+}
+.badge.state.cancelada {
+  background: #ffebee;
+  border: 1px solid #c62828;
+    color: black;
+}

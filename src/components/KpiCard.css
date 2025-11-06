@@ -1,0 +1,178 @@
+.kpi-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  border-left: 6px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  min-height: 130px; /* ⬅️ Aumenta la altura base */
+  min-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.kpi-card.expanded {
+  transform: scale(1.005);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.22);
+  min-height: 130px; /* ⬅️ Misma altura al expandir */
+  padding-bottom: 26px;
+}
+
+
+.kpi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.kpi-title {
+  margin: 0;
+  font-size: 1.2rem;              /* 📍 más grande */
+  font-weight: 700;
+}
+
+
+.kpi-subtitle {
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
+.kpi-count {
+  font-size: 1.6rem;              /* 📍 más grande y visible */
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.kpi-icon {
+  font-size: 26px;
+  margin-right: 10px;
+  color: #1a1a1a;
+}
+
+.kpi-info h3,
+.kpi-info .label,
+.kpi-count {
+  color: #1a1a1a;
+  margin: 0;
+  font-weight: 600;
+}
+
+
+/* Icono para expandir */
+.kpi-toggle {
+  font-size: 1.3rem;
+  opacity: 0.75;
+  cursor: pointer;
+  transition: 0.2s;
+  color: #000;
+}
+
+.kpi-toggle:hover {
+  opacity: 1;
+}
+
+/* Contenido expandido */
+.kpi-content {
+  margin-top: 12px;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  color: #333;
+  animation: slideDown 0.25s ease-in-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🎨 Colores del borde para cada KPI */
+.kpi-programadas {
+  border-left-color: #1D4ED8; /* Azul */
+}
+
+.kpi-completadas {
+  border-left-color: #059669; /* Verde */
+}
+
+.kpi-pendientes {
+  border-left-color: #F97316; /* Naranja */
+}
+
+.kpi-table-head {
+  display: grid;
+  grid-template-columns: 28% 12% 32% 12% 8% 8%;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 10px 4px;
+  color: #333;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* ===== Filas ===== */
+.kpi-row {
+  display: grid;
+  grid-template-columns: 28% 12% 32% 12% 8% 8%;
+  align-items: center;
+  padding: 8px 4px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #efefef;
+}
+
+.kpi-row:last-child {
+  border-bottom: none;
+}
+
+/* ===== Badges de Estado (2B) ===== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.badge-pendiente {
+  background-color: #f97316; /* Naranja */
+}
+
+.badge-completada {
+  background-color: #16a34a; /* Verde */
+}
+
+.badge-programada {
+  background-color: #2563eb; /* Azul */
+}
+
+.badge-progreso {
+  background-color: #5a590b; /* Azul */
+}
+
+/* ===== Botón Ver ubicación ===== */
+.btn-map {
+  background-color: #0059ff;
+  color: white;
+  border: none;
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: 0.2s ease-in-out;
+}
+
+.btn-map:hover {
+  background-color: #003fd1;
+}

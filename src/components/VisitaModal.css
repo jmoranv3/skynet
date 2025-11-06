@@ -1,0 +1,155 @@
+/* ===== Fondo oscuro del modal ===== */
+.vm-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.2s ease-in-out;
+  z-index: 999;
+}
+
+/* ===== Contenedor del modal ===== */
+.vm-modal {
+  width: 600px;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  color: #000; /* 👈 Texto negro */
+  animation: slideDown 0.25s ease-in-out;
+  overflow: hidden;
+}
+
+/* Header */
+.vm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.vm-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Body con scroll interno */
+.vm-body {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* Campos */
+.vm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.vm-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.vm-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 3px;
+  color: #111;
+}
+
+.vm-field input,
+.vm-field select,
+.vm-field textarea {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  background: #fff;
+  color: #000; /* texto negro */
+  font-size: 0.9rem;
+}
+
+.vm-field input[disabled] {
+  background: #f3f3f3;
+  cursor: not-allowed;
+}
+
+/* Row para input + botón (mapa) */
+.vm-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+/* Acciones */
+.vm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  background: #ddd;
+  transition: 0.25s;
+}
+
+.btn:hover {
+  background: #ccc;
+}
+
+.btn.primary {
+  background: #ff7b00;
+  color: white;
+  font-weight: 600;
+}
+
+.btn.primary:hover {
+  background: #e76c00;
+}
+
+/* Errores */
+.vm-error {
+  background: #ffe0e0;
+  color: #c40000;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  border: 1px solid #ffbfbf;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+input[type="date"] {
+  cursor: pointer;
+}
+
+/* Forzar que el icono de calendario sea visible en Chrome */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 1;
+  cursor: pointer;
+}

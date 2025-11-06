@@ -1,0 +1,194 @@
+.cm-backdrop {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.cm-modal {
+  background: #ffffff;
+  width: 900px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.25s ease-in-out;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  padding-bottom: 12px;
+  color: #000; /* ✅ Texto negro */
+}
+
+/* Header */
+.cm-header {
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f2f4f7;
+  border-radius: 12px 12px 0 0;
+  color: #000; /* ✅ Título en negro */
+  font-weight: bold;
+}
+
+.cm-close {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #000; /* ✅ Botón cerrar en negro */
+}
+
+/* Inputs */
+.cm-body {
+  padding: 18px 20px;
+  color: #000; /* ✅ Texto negro */
+}
+
+.cm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 20px;
+}
+
+.cm-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+  color: #000; /* ✅ Label negro */
+}
+
+.cm-field input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  color: #000; /* ✅ Texto del input negro */
+  background: white;
+}
+
+/* Botón Ubicación Exacta */
+.cm-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.cm-row .btn {
+  white-space: nowrap;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  color: #000; /* ✅ Texto negro */
+}
+
+/* Footer */
+.cm-actions {
+  padding: 12px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  background: #f8f8f8;
+  border-top: 1px solid #ddd;
+}
+
+.cm-actions .btn {
+  background: #e0e0e0;
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: #000; /* ✅ Texto negro */
+}
+
+.cm-actions .btn.primary {
+  background: #ff7b00;
+  color: white;
+}
+
+.cm-error {
+  background: #ffe3e3;
+  border: 1px solid #ff8a8a;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #8b0000;
+  margin-bottom: 12px;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ========= SWITCH ACTIVO (Estilo Simple Azul) ========= */
+
+.switch-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 500;
+  color: #111; /* negro */
+}
+
+.switch {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  display: inline-block;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #bfbfbf; /* gris cuando está OFF */
+  border-radius: 24px;
+  transition: 0.3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+/* ✅ Activo */
+.switch input:checked + .slider {
+  background-color: #0099ff; /* azul ON */
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.switch.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.cm-modal.small {
+  width: 380px;
+  max-width: 95%;
+}
+
+.cm-actions.column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
