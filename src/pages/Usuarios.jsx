@@ -13,15 +13,25 @@ function Usuarios() {
   const [modalMode, setModalMode] = useState("create"); // 'create' | 'edit'
   const [selectedUser, setSelectedUser] = useState(null);
 
-  const loadUsuarios = async () => {
-    try {
-      const res = await fetch("https://skynet-api-auth.onrender.com/api/usuarios");
-      const data = await res.json();
-      setUsuarios(data);
-    } catch (error) {
-      console.error("Error cargando usuarios:", error);
-    }
-  };
+        const loadUsuarios = async () => {
+          try {
+            const res = await fetch("https://skynet-api-auth.onrender.com/api/usuarios");
+            const data = await res.json();
+
+            // Asegurar que sea array
+            const list = Array.isArray(data) ? data : data.usuarios || [];
+
+            // Quitar duplicados por id_usuario
+            const unique = new Map();
+            list.forEach(u => unique.set(u.id_usuario, u));
+
+            setUsuarios([...unique.values()]);
+          } catch (error) {
+            console.error("Error cargando usuarios:", error);
+          }
+        };
+
+
 
   useEffect(() => {
     loadUsuarios();
