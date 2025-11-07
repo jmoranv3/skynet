@@ -13,7 +13,7 @@ const menuByRole = {
     { name: "Inicio", icon: "🏠", path: "/dashboard" },
     { name: "Usuarios", icon: "👤", path: "/usuarios" },
     { name: "Clientes", icon: "📍", path: "/clientes" },
-    { name: "Visitas", icon: "🗓️", path: "/visitas" },
+    { name: "Visitas", icon: "🗓️", path: "/visitas" }
     // { name: "Configuración", icon: "⚙️", path: "/configuracion" }
   ],
 
