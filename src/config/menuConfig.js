@@ -14,7 +14,7 @@ const menuByRole = {
     { name: "Usuarios", icon: "👤", path: "/usuarios" },
     { name: "Clientes", icon: "📍", path: "/clientes" },
     { name: "Visitas", icon: "🗓️", path: "/visitas" },
-    { name: "Configuración", icon: "⚙️", path: "/configuracion" }
+    // { name: "Configuración", icon: "⚙️", path: "/configuracion" }
   ],
 
   SUPERVISOR: [
