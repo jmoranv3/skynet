@@ -89,6 +89,7 @@ const openMapForVisit = v => {
   const renderItem = v => {
     const c = clienteByName.get((v.cliente || "").trim().toUpperCase());
     const direccion = c?.direccion || "—";
+    console.error(direccion);
     return (
       <div key={v.id_visita} className="kpi-row">
         <div><strong>{v.cliente}</strong></div>
