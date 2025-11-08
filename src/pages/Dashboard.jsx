@@ -32,8 +32,8 @@ useEffect(() => {
       setProgramadas(resProg.visitas || []);
       setCompletadas(resComp.visitas || []);
       setPendientes(resPend.visitas || []);
+      setClientes(cliList || []);
 
-+     setClientes(Array.isArray(cliList.clientes) ? cliList.clientes : []);
 
     } catch (error) {
       console.error("Error cargando KPIs:", error);
@@ -56,7 +56,6 @@ useEffect(() => {
 const openMapForVisit = v => {
   const key = (v.cliente || "").trim().toUpperCase();
   const c = clienteByName.get(key) || {};
-
   const dataForModal = {
     cliente: v.cliente,
     tecnico: v.tecnico,
