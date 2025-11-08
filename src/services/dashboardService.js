@@ -8,6 +8,10 @@ export const getVisitasCompletadas = async () => {
   return getKpiCompletadas();
 };
 
+
+
 export const getVisitasPendientes = async () => {
   return getKpiPendientes();
 };
+
+

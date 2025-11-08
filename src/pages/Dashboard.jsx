@@ -53,20 +53,23 @@ useEffect(() => {
     return map;
   }, [clientes]);
 
-  const openMapForVisit = v => {
-    const key = (v.cliente || "").trim().toUpperCase();
-    const c = clienteByName.get(key) || {};
-    const dataForModal = {
-      cliente: v.cliente,
-      tecnico: v.tecnico,
-      estado: v.estado,
-      fecha_visita: v.fecha_visita,
+const openMapForVisit = v => {
+  const key = (v.cliente || "").trim().toUpperCase();
+  const c = clienteByName.get(key) || {};
+
+  const dataForModal = {
+    cliente: v.cliente,
+    tecnico: v.tecnico,
+    estado: v.estado,
+    fecha_visita: v.fecha_visita,
       direccion: c.direccion || "",
       coords: c.coordenadas || "",
-    };
-    setSelectedVisit(dataForModal);
-    setModalOpen(true);
   };
+
+  console.log("🧭 DATA ENVIADA AL MODAL:", dataForModal);
+  setSelectedVisit(dataForModal);
+  setModalOpen(true);
+};
 
   if (loading) return <p>Cargando datos...</p>;
 

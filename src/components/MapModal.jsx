@@ -15,9 +15,9 @@ export default function MapModal({ open, onClose, data }) {
   }
 
   const externalUrl = coords
+  
     ? `https://www.google.com/maps?q=${encodeURIComponent(coords)}&z=16`
     : null;
-
   return (
     <div className="mapmodal-backdrop" onClick={onClose}>
       <div className="mapmodal-card" onClick={(e) => e.stopPropagation()}>
